@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Jerry's Drugs pharmacy storefront in Accra. Browse everyday health and personal-care products and contact the pharmacy.">
+<title>Jerry's Drugs | Pharmacy & Health</title>
+<style>
+:root{--green:#0a6e3a;--dark:#0d3b22;--mint:#e8f5e9;--ink:#18251d;--muted:#657268;--line:#e2e9e4;--white:#fff}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--ink);background:#fbfdfb;line-height:1.5}
+a{color:inherit;text-decoration:none}
+header{background:var(--green);color:#fff;padding:15px 6%;display:flex;align-items:center;justify-content:space-between;gap:18px;position:sticky;top:0;z-index:10;box-shadow:0 4px 18px #0d3b221a}
+.logo{font-size:21px;font-weight:900;letter-spacing:.4px;white-space:nowrap}
+.logo span{color:#c7f3d5}
+nav{display:flex;gap:20px;align-items:center}
+nav a{font-size:14px;font-weight:700}
+nav a:hover{text-decoration:underline}
+.cart-pill{background:#fff;color:var(--green);padding:9px 13px;border-radius:99px;font-weight:800;white-space:nowrap}
+.hero{background:linear-gradient(115deg,#e7f6eb 0%,#fff 65%);padding:64px 6% 58px;display:grid;grid-template-columns:1.2fr .8fr;align-items:center;gap:30px}
+.eyebrow{display:inline-block;background:#d0f0da;color:var(--dark);padding:6px 12px;border-radius:99px;font-weight:800;font-size:12px;text-transform:uppercase;letter-spacing:.8px}
+.hero h1{font-size:clamp(34px,5vw,56px);line-height:1.08;color:var(--dark);margin:18px 0}
+.hero h1 span{color:var(--green)}
+.hero p{max-width:590px;color:#526258;font-size:17px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+.button{border:0;border-radius:10px;padding:13px 18px;background:var(--green);color:#fff;font-size:14px;font-weight:800;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+.button:hover{filter:brightness(.94)}
+.button.secondary{background:#fff;color:var(--green);border:1px solid #b8d7c2}
+.hero-art{min-height:260px;border-radius:28px;background:radial-gradient(circle at 70% 25%,#fff 0 12%,transparent 13%),linear-gradient(145deg,#c9ebd3,#edf9f0);display:grid;place-items:center;position:relative;overflow:hidden}
+.medical-cross{font-size:110px;color:var(--green);font-weight:900;line-height:1;text-shadow:0 10px 25px #0a6e3a20}
+.hero-art:before,.hero-art:after{content:"";position:absolute;border-radius:50%;border:22px solid #ffffff65;width:180px;height:180px}
+.hero-art:before{top:-75px;left:-45px}.hero-art:after{bottom:-115px;right:-40px;width:240px;height:240px}
+.art-label{position:absolute;bottom:20px;left:20px;background:#fff;color:var(--dark);padding:10px 14px;border-radius:12px;font-weight:800;box-shadow:0 5px 20px #0d3b2210}
+.container{padding:42px 6%}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:22px}
+.section-head h2{font-size:28px;color:var(--dark)}
+.section-head p{color:var(--muted);font-size:14px;margin-top:4px}
+.search{width:min(100%,340px);padding:12px 15px;border:1px solid #cddbd1;border-radius:10px;font-size:15px;outline-color:var(--green);background:#fff}
+.filters{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:22px}
+.filter{border:1px solid #d5e2d8;background:#fff;border-radius:99px;padding:8px 14px;font-weight:700;color:#435348;cursor:pointer}
+.filter.active,.filter:hover{background:var(--green);color:#fff;border-color:var(--green)}
+.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:17px;display:flex;flex-direction:column;min-width:0;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 28px #0d3b2210}
+.product-art{height:125px;border-radius:12px;background:var(--mint);display:grid;place-items:center;font-size:49px;margin-bottom:14px}
+.card h3{font-size:16px;color:var(--dark);margin:8px 0 4px}
+.card p{font-size:13px;color:var(--muted);flex:1}
+.tag{font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.5px;border-radius:99px;padding:5px 8px;align-self:flex-start;background:#e8f5e9;color:var(--green)}
+.tag.ask{background:#fff2d9;color:#825500}
+.price{font-size:19px;color:var(--green);font-weight:900;margin:12px 0}
+.card .button{width:100%;padding:11px}
+.note{margin-top:22px;padding:15px 17px;background:#fff8e8;border:1px solid #f0dfb5;border-radius:12px;color:#654e20;font-size:13px}
+.trust{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.trust-item{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px}
+.trust-item strong{display:block;color:var(--dark);margin:7px 0}
+.trust-item p{font-size:14px;color:var(--muted)}
+.contact{background:var(--mint);border-radius:20px;padding:28px;display:flex;justify-content:space-between;align-items:center;gap:20px}
+.contact h2{color:var(--dark);margin-bottom:6px}.contact p{color:#526258}
+footer{background:#10271a;color:#d6e5da;padding:30px 6%;margin-top:36px}
+.footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer p{font-size:13px;margin-top:8px;color:#b7cbbd}
+.empty{grid-column:1/-1;text-align:center;padding:35px;color:var(--muted)}
+.cart-count{display:inline-grid;place-items:center;background:#e8f5e9;color:var(--green);border-radius:50%;min-width:22px;height:22px;padding:0 5px;margin-left:4px}
+@media(max-width:900px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{grid-template-columns:1fr}.hero-art{min-height:200px}.trust{grid-template-columns:1fr}}
+@media(max-width:600px){header{padding:13px 4%;flex-wrap:wrap}.logo{font-size:18px}nav{gap:12px;order:3;width:100%;justify-content:space-between}nav a{font-size:13px}.hero,.container{padding-left:4%;padding-right:4%}.hero{padding-top:40px}.section-head{align-items:stretch;flex-direction:column}.search{width:100%}.grid{gap:12px}.card{padding:12px}.product-art{height:100px;font-size:40px}.card h3{font-size:14px}.price{font-size:17px}.button{padding:11px 13px}.contact{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header>
+  <a class="logo" href="#home">JERRY'S <span>DRUGS</span></a>
+  <nav aria-label="Main navigation">
+    <a href="#shop">Shop</a><a href="#prescription">Prescription</a><a href="#contact">Contact</a>
+  </nav>
+  <a class="cart-pill" href="#shop">Basket <span id="cartCount" class="cart-count">0</span></a>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div>
+    <span class="eyebrow">Your neighbourhood health store</span>
+    <h1>Care for your health.<br><span>Every day.</span></h1>
+    <p>Welcome to Jerry's Drugs. Browse everyday health and personal-care essentials, then contact us to confirm availability, pricing, and safe use.</p>
+    <div class="hero-actions"><a class="button" href="#shop">Browse products <span aria-hidden="true">→</span></a><a class="button secondary" href="#contact">Contact the pharmacy</a></div>
+  </div>
+  <div class="hero-art" aria-label="Pharmacy cross illustration" role="img"><div class="medical-cross">+</div><div class="art-label">Health • Care • Support</div></div>
+</section>
+
+<section class="container" id="shop">
+  <div class="section-head"><div><h2>Shop health essentials</h2><p>Search the catalogue or choose a category.</p></div><input id="searchInput" class="search" type="search" placeholder="Search products..." aria-label="Search products"></div>
+  <div class="filters" aria-label="Product categories">
+    <button class="filter active" data-category="all">All products</button><button class="filter" data-category="personal">Personal care</button><button class="filter" data-category="firstaid">First aid</button><button class="filter" data-category="wellness">Wellness</button><button class="filter" data-category="ask">Ask pharmacist</button>
+  </div>
+  <div class="grid" id="productGrid" aria-live="polite"></div>
+  <div class="note"><strong>Important:</strong> Product examples and prices are placeholders for demonstration, not a verified inventory or medical recommendation. Confirm all products and prices with the pharmacy. Prescription-only medicines require a valid prescription and pharmacist review.</div>
+</section>
+
+<section class="container" id="prescription">
+  <div class="section-head"><div><h2>Prescription support</h2><p>Prescription medicines are handled with appropriate professional checks.</p></div></div>
+  <div class="trust">
+    <div class="trust-item"><div style="font-size:28px">🧑‍⚕️</div><strong>Speak to a pharmacist</strong><p>Ask a qualified pharmacist about your prescription and whether a medicine is suitable for you.</p></div>
+    <div class="trust-item"><div style="font-size:28px">📄</div><strong>Prescription required</strong><p>Prescription-only medicines must not be supplied without the required prescription and checks.</p></div>
+    <div class="trust-item"><div style="font-size:28px">🔒</div><strong>Privacy matters</strong><p>Do not send sensitive medical information through an unsecured public form or social media message.</p></div>
+  </div>
+</section>
+
+<section class="container" id="contact">
+  <div class="contact"><div><h2>Need help finding a product?</h2><p>Contact Jerry's Drugs to confirm stock, current prices, opening hours, and pharmacy details.</p></div><a class="button" id="contactButton" href="mailto:hello@example.com?subject=Product%20enquiry">Send an enquiry</a></div>
+  <p style="font-size:12px;color:#657268;margin-top:12px">Before publishing, replace the sample email with the pharmacy's official contact details and verify any licensing or regulatory claims.</p>
+</section>
+</main>
+
+<footer>
+  <div class="footer-row"><div><strong>JERRY'S DRUGS</strong><p>Pharmacy & everyday health essentials</p></div><div><strong>Accra, Ghana</strong><p>Contact details and opening hours to be confirmed.</p></div></div>
+  <p style="margin-top:20px">© <span id="year"></span> Jerry's Drugs. All rights reserved.</p>
+</footer>
+
+<script>
+const products = [
+ {name:"Hand Sanitizer",category:"personal",icon:"🧴",tag:"Personal care",description:"Hand hygiene essential.",price:"GH₵  —"},
+ {name:"Gentle Soap",category:"personal",icon:"🧼",tag:"Personal care",description:"Everyday cleansing product.",price:"GH₵  —"},
+ {name:"Digital Thermometer",category:"firstaid",icon:"🌡️",tag:"First aid",description:"For checking body temperature; follow the product instructions.",price:"GH₵  —"},
+ {name:"Adhesive Bandages",category:"firstaid",icon:"🩹",tag:"First aid",description:"Basic first-aid cupboard essential.",price:"GH₵  —"},
+ {name:"Cotton Wool",category:"firstaid",icon:"⚕️",tag:"First aid",description:"General first-aid supply.",price:"GH₵  —"},
+ {name:"Vitamin Supplement",category:"wellness",icon:"🍊",tag:"Ask pharmacist",description:"Ask a pharmacist whether a supplement is appropriate for you.",price:"Confirm price"},
+ {name:"Oral Rehydration Salts",category:"wellness",icon:"💧",tag:"Ask pharmacist",description:"Ask a pharmacist for advice on correct use and when to seek care.",price:"Confirm price"},
+ {name:"Prescription medicine",category:"ask",icon:"📋",tag:"Prescription required",description:"Availability and suitability must be checked by the pharmacist.",price:"Ask pharmacist"}
+];
+let activeCategory="all", basket=0;
+const grid=document.getElementById("productGrid");
+function renderProducts(){
+ const query=document.getElementById("searchInput").value.trim().toLowerCase();
+ const filtered=products.filter(p=>(activeCategory==="all"||p.category===activeCategory|| (activeCategory==="ask"&&p.tag==="Ask pharmacist"))&&(p.name+" "+p.description+" "+p.tag).toLowerCase().includes(query));
+ grid.innerHTML="";
+ if(!filtered.length){grid.innerHTML='<div class="empty">No products match your search. Try another term.</div>';return;}
+ filtered.forEach(p=>{
+  const card=document.createElement("article");card.className="card";
+  const tagClass=(p.category==="ask"||p.tag==="Ask pharmacist")?"tag ask":"tag";
+  card.innerHTML=`<div class="product-art" aria-hidden="true">${p.icon}</div><span class="${tagClass}">${p.tag}</span><h3></h3><p></p><div class="price"></div><button class="button add-button" type="button">Add to enquiry basket</button>`;
+  card.querySelector("h3").textContent=p.name;
+  card.querySelector("p").textContent=p.description;
+  card.querySelector(".price").textContent=p.price;
+  card.querySelector("button").addEventListener("click",()=>{basket++;document.getElementById("cartCount").textContent=basket;document.querySelector(".cart-pill").setAttribute("aria-label",`Basket with ${basket} items`);card.querySelector("button").textContent="Added ✓";setTimeout(()=>{if(card.querySelector("button"))card.querySelector("button").textContent="Add to enquiry basket"},1200)});
+  grid.appendChild(card);
+ });
+}
+document.getElementById("searchInput").addEventListener("input",renderProducts);
+document.querySelectorAll(".filter").forEach(btn=>btn.addEventListener("click",()=>{document.querySelector(".filter.active").classList.remove("active");btn.classList.add("active");activeCategory=btn.dataset.category;renderProducts()}));
+document.getElementById("year").textContent=new Date().getFullYear();
+renderProducts();
+</script>
+</body>
+</html>
